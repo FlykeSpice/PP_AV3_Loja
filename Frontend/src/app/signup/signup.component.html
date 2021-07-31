@@ -1,0 +1,14 @@
+<div class="card m-5 p-2 text-center mx-auto" style="width: 40%; box-shadow: 2px 1px #888888;">
+  <div class="card-body">
+    <h2 class="card-title m-1" style="font-size:50px; font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;"><i>Welcome to Loja-e!</i></h2>
+      <h4 class="card-title mt-2 mb-3"><b>Sign up with Loja-e</b></h4>
+          <form  #form ngNativeValidate>
+          <p> <input type="text" style="width: 75%; border: none; border-bottom: 1px solid #eb445a;" [(ngModel)]="name" name="name" placeholder="Full Name" required> </p>
+          <p> <input type="email" style="width: 75%; border: none; border-bottom: 1px solid #eb445a;" [(ngModel)]="email" name="email" placeholder="Email" required> </p>
+          <p> <input type="password" style="width: 75%; border: none; border-bottom: 1px solid #eb445a ;" [(ngModel)]="password" name="psw" placeholder="Password" required> </p>
+          <p> <input type="number" style="width: 75%; border: none; border-bottom: 1px solid #eb445a ;" [(ngModel)]="number" name="phone" placeholder="Mobile Number" required> </p>
+          <button type="submit" class="btn btn-danger " (click)="form.checkValidity()? signup(): null"> Create Account</button><p></p>
+          Already have an account? <a href="#" style = "font-size: 15; color: #326a9e; "  routerLink="/login"> Sign in</a>
+          </form>
+  </div>
+</div>

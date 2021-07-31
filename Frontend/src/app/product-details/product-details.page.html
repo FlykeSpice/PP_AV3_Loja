@@ -1,0 +1,54 @@
+<ion-grid>
+
+  <ion-row >
+    <ion-col class="card my-2" size="3" style="box-shadow: 2px 0px 2px 2px #888888; ">
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+      <div class="carousel-inner" >
+        <div class="carousel-item active">
+          <img class="d-block w-100" [src]="staticproduct_value" alt="First slide">
+        </div>
+        <div class="carousel-item" *ngFor="let card of staticname">
+          <img class="d-block w-100"  [src]="card.imageSource" alt="Second slide">
+        </div>
+
+
+      </div>
+      <a class="carousel-control-prev"  href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+  </ion-col>
+
+  <ion-col class="card m-5 p-2 mx-auto"  size="5" style="background-color: #fafafa; padding: 2%; margin: 3%; box-shadow: 2px 1px #888888;">
+    <h1 style="text-align: center; font-weight: bolder; font-size:xx-large;">{{statictitle}} </h1>
+    <br>
+    <h4 style="text-align: left; font-size: x-large;">{{staticcontent}}</h4>
+
+    <h4 style="text-align: left; font-size: x-large;">Cost : Rs. {{staticprice}}</h4>
+    <br>
+
+    <ion-row *ngIf="staticpid != 'watch'">
+    <p style="text-align: left; color: grey;font-size: large" > Size</p>
+    <button type="button"  class="btn btn-outline-dark mx-4">Small</button>
+    <button type="button"  class="btn btn-outline-dark mx-4">Medium</button>
+    <button type="button"  class="btn btn-outline-dark mx-4">Large</button>
+  </ion-row>
+    <br>
+    <p style="text-align: left;font-family: cursive; color:red; padding-top: 3%; font-weight: bolder;font-size: large" > Hurry! Only a few left</p>
+    <br>
+
+    <button style="color: white;"  *ngIf="adminService.admin"  (click)="
+    add_to_cart(staticcontent,statictitle,staticprice,staticproduct_value)" (click)="showAlert()"class="btn btn-danger">Add to Cart</button>
+    <button style="color: white;"  *ngIf="!adminService.admin"   routerLink="/login" class="btn btn-danger">Add to Cart</button>
+  </ion-col>
+  </ion-row>
+
+
+
+
+</ion-grid>
